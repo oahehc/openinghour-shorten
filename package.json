@@ -1,0 +1,10 @@
+{
+  "name": "openinghour-shorten",
+  "version": "1.0.0",
+  "description": "shorten google map opening hour data",
+  "main": "index.js",
+  "repository": "git@github.com:oahehc/openinghour-shorten.git",
+  "author": "oahehc <oahehc@gmail.com>",
+  "license": "MIT",
+  "keywords": ["google_map", "opening_hours"]
+}
