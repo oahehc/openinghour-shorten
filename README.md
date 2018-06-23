@@ -27,7 +27,7 @@ const openingHour = [
 ];
 
 openinghourShorten(openingHour);
-//=> XXXXX
+//=> Sun 10:00~21:00; Mon-Thu 11:00~21:00; Fri 11:00~22:00; Sat 10:00~22:00
 ```
 
 
