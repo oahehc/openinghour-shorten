@@ -19,11 +19,22 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "./*.js"
+      "*.{js,jsx}"
     ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 99,
+        "branches": 99,
+        "functions": 99,
+        "lines": 99
+      }
+    },
     "moduleDirectories": [
       "node_modules"
     ],
     "testRegex": "./.*\\.test\\.js$"
+  },
+  "dependencies": {
+    "immutable": "^3.8.2"
   }
 }
