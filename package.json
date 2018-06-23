@@ -6,5 +6,24 @@
   "repository": "git@github.com:oahehc/openinghour-shorten.git",
   "author": "oahehc <oahehc@gmail.com>",
   "license": "MIT",
-  "keywords": ["google_map", "opening_hours"]
+  "keywords": [
+    "google_map",
+    "opening_hours"
+  ],
+  "devDependencies": {
+    "jest": "^23.1.0"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --watchAll"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "./*.js"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "testRegex": "./.*\\.test\\.js$"
+  }
 }

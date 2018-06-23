@@ -3,10 +3,10 @@
 // }
 /**
  * Adds commas to a number
- * @param {number} number
- * @param {string} locale
- * @return {string}
+ * @param {number} number1
+ * @param {number} number2
+ * @return {number}
  */
-module.exports = function(number, locale) {
-  return number.toLocaleString(locale);
+module.exports = function(number1, number2) {
+  return number1 + number2;
 };
