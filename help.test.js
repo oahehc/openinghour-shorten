@@ -13,6 +13,19 @@ describe('isContinue', () => {
     const array = Immutable.fromJS([1,3,5]);
     expect(isContinue(array)).toBeFalsy();
   });
+  test('two element should not be consider as continue', () => {
+    const array = Immutable.fromJS([1, 2]);
+    expect(isContinue(array)).toBeFalsy();
+  });
+  test('single', () => {
+    const array = Immutable.fromJS([1]);
+    expect(isContinue(array)).toBeFalsy();
+  });
+  test('not array', () => {
+    expect(isContinue('')).toBeFalsy();
+    expect(isContinue('string')).toBeFalsy();
+    expect(isContinue({})).toBeFalsy();
+  });
 });
 
 describe('dateToName', () => {
