@@ -6,5 +6,64 @@
   "repository": "git@github.com:oahehc/openinghour-shorten.git",
   "author": "oahehc <oahehc@gmail.com>",
   "license": "MIT",
-  "keywords": ["google_map", "opening_hours"]
+  "keywords": [
+    "google_map",
+    "opening_hours"
+  ],
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --watchAll",
+    "cover": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "eslint": "./node_modules/.bin/eslint  -- . "
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "*.{js,jsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 99,
+        "branches": 99,
+        "functions": 99,
+        "lines": 99
+      }
+    },
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "testRegex": "./.*\\.test\\.js$"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-airbnb-base",
+    "env": {
+      "node": true,
+      "jest": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "rules": {
+      "max-len": 0,
+      "comma-spacing": 0,
+      "no-trailing-spaces": [
+        2,
+        {
+          "skipBlankLines": true,
+          "ignoreComments": true
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.1",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "jest": "^23.1.0"
+  },
+  "dependencies": {
+    "immutable": "^3.8.2"
+  }
 }
