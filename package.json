@@ -14,7 +14,7 @@
     "test": "jest --coverage",
     "test:watch": "jest --watchAll",
     "cover": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "eslint": "./node_modules/.bin/eslint --ignore-path .gitignore  -- . "
+    "eslint": "./node_modules/.bin/eslint  -- . "
   },
   "jest": {
     "collectCoverageFrom": [
