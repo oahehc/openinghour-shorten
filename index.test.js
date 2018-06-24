@@ -121,25 +121,27 @@ describe('NORMAL CASE', () => {
       { close: { day: 6, time: '1030' }, open: { day: 6, time: '0630' } },
       { close: { day: 6, time: '1430' }, open: { day: 6, time: '1200' } },
       { close: { day: 6, time: '1700' }, open: { day: 6, time: '1530' } },
-      { close: { day: 6, time: '2130' }, open: { day: 6, time: '1800' } } ];
+      { close: { day: 6, time: '2130' }, open: { day: 6, time: '1800' } },
+    ];
     // const expectResult = 'Sun,Sat 06:30~10:30 12:00~14:30; Mon-Fri 06:30~10:00 11:30~14:00; Sun-Sat 15:30~17:00 18:00~21:30';
     const expectResult = 'Sun,Sat 06:30~10:30 12:00~14:30; Sun-Sat 15:30~17:00 18:00~21:30; Mon-Fri 06:30~10:00 11:30~14:00';
     expect(openinghourShorten(openingHours)).toBe(expectResult);
   });
   test('with holiday', () => {
     const openingHours = [
-    { close: { day: 1, time: '1400' }, open: { day: 1, time: '1130' } },
-    { close: { day: 1, time: '2100' }, open: { day: 1, time: '1730' } },
-    { close: { day: 2, time: '1400' }, open: { day: 2, time: '1130' } },
-    { close: { day: 2, time: '2100' }, open: { day: 2, time: '1730' } },
-    { close: { day: 3, time: '1400' }, open: { day: 3, time: '1130' } },
-    { close: { day: 3, time: '2100' }, open: { day: 3, time: '1730' } },
-    { close: { day: 4, time: '1400' }, open: { day: 4, time: '1130' } },
-    { close: { day: 4, time: '2100' }, open: { day: 4, time: '1730' } },
-    { close: { day: 5, time: '1400' }, open: { day: 5, time: '1130' } },
-    { close: { day: 5, time: '2100' }, open: { day: 5, time: '1730' } },
-    { close: { day: 6, time: '1400' }, open: { day: 6, time: '1130' } },
-    { close: { day: 6, time: '2100' }, open: { day: 6, time: '1730' } } ];
+      { close: { day: 1, time: '1400' }, open: { day: 1, time: '1130' } },
+      { close: { day: 1, time: '2100' }, open: { day: 1, time: '1730' } },
+      { close: { day: 2, time: '1400' }, open: { day: 2, time: '1130' } },
+      { close: { day: 2, time: '2100' }, open: { day: 2, time: '1730' } },
+      { close: { day: 3, time: '1400' }, open: { day: 3, time: '1130' } },
+      { close: { day: 3, time: '2100' }, open: { day: 3, time: '1730' } },
+      { close: { day: 4, time: '1400' }, open: { day: 4, time: '1130' } },
+      { close: { day: 4, time: '2100' }, open: { day: 4, time: '1730' } },
+      { close: { day: 5, time: '1400' }, open: { day: 5, time: '1130' } },
+      { close: { day: 5, time: '2100' }, open: { day: 5, time: '1730' } },
+      { close: { day: 6, time: '1400' }, open: { day: 6, time: '1130' } },
+      { close: { day: 6, time: '2100' }, open: { day: 6, time: '1730' } },
+    ];
     const expectResult = 'Mon-Sat 11:30~14:00 17:30~21:00';
     expect(openinghourShorten(openingHours)).toBe(expectResult);
   });

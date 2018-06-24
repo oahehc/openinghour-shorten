@@ -4,13 +4,13 @@ const {
 } = require('./helper');
 
 
-const timeFormat = (t) => `${t.slice(0, 2)}:${t.slice(2, 4)}`;
-const dateFormat = (dateList) => {
-  return dateList
+const timeFormat = t => `${t.slice(0, 2)}:${t.slice(2, 4)}`;
+const dateFormat = dateList => (
+  dateList
     // group continue day: [[0,1,2], [4, 5]]
     .reduce((res, date) => {
       const index = res.reduce((i, arr, idx) => {
-        const findIndex = arr.findIndex((ele) => ele === (date - 1));
+        const findIndex = arr.findIndex(ele => ele === (date - 1));
         return findIndex > -1 ? idx : i;
       }, -1);
       return (index > -1) ? res.set(index, res.get(index).push(date)) : res.push(Immutable.fromJS([date]));
@@ -19,21 +19,22 @@ const dateFormat = (dateList) => {
     .reduce((newList, list) => {
       if (list.size === 2) {
         return newList.push(Immutable.fromJS([list.get(0)])).push(Immutable.fromJS([list.get(1)]));
-      } else if (list.size > 2) {
-        return newList.push(Immutable.fromJS([list.first(), list.last()]))
+      }
+      if (list.size > 2) {
+        return newList.push(Immutable.fromJS([list.first(), list.last()]));
       }
       return newList.push(list);
     }, Immutable.List())
     // mapping to name
-    .map((list) => list.map(dateToName).join('-')).join(',');
-};
+    .map(list => list.map(dateToName).join('-')).join(',')
+);
 
 /**
  * @param {array} openingHours
  * 
  * @return {string}
  */
-module.exports = function(openingHours) {
+module.exports = (openingHours) => {
   if (!openingHours) {
     console.error('openingHours not follow google map format');
     return null;
@@ -46,7 +47,7 @@ module.exports = function(openingHours) {
         return group.set(index, group.get(index, Immutable.List()).push(hour));
       }, Immutable.Map())
       // day to name
-      .map((group) => group.map((hour) => (hour.getIn(['open', 'day'], hour.getIn(['close', 'day'])))))
+      .map(group => group.map(hour => (hour.getIn(['open', 'day'], hour.getIn(['close', 'day'])))))
       // clock format adjust
       .map((group, key) => (
         Immutable.fromJS({

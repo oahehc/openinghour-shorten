@@ -8,7 +8,7 @@ module.exports = {
           return false;
         }
         return res;
-      }, array.size > 2)
+      }, array.size > 2);
     } catch (error) {
       return false;
     }

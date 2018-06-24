@@ -13,7 +13,8 @@
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "jest --watchAll",
-    "cover": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "cover": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "eslint": "./node_modules/.bin/eslint --ignore-path .gitignore  -- . "
   },
   "jest": {
     "collectCoverageFrom": [
@@ -32,8 +33,34 @@
     ],
     "testRegex": "./.*\\.test\\.js$"
   },
+  "eslintConfig": {
+    "extends": "eslint-config-airbnb-base",
+    "env": {
+      "node": true,
+      "jest": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "rules": {
+      "max-len": 0,
+      "comma-spacing": 0,
+      "no-trailing-spaces": [
+        2,
+        {
+          "skipBlankLines": true,
+          "ignoreComments": true
+        }
+      ]
+    }
+  },
   "devDependencies": {
     "coveralls": "^3.0.1",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.12.0",
     "jest": "^23.1.0"
   },
   "dependencies": {
