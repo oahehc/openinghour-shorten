@@ -58,8 +58,13 @@ module.exports = function(openingHours) {
       .map((group, key) => {
         const time = key.split('_').map(timeFormat).join('~');
         const date = dateFormat(group);
-        return `${date} ${time}`;
+        return Immutable.fromJS({
+          time,
+          date,
+        });
       })
+      .reduce((list, group) => list.set(group.get('date'), list.get(group.get('date'), Immutable.List()).push(group.get('time'))), Immutable.Map())
+      .map((group, date) => `${date} ${group.join(' ')}`)
       .join('; ');
   } catch (error) {
     // TODO: error handle
