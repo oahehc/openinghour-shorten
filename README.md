@@ -1,4 +1,4 @@
-# openinghour-shorten [![Build Status](https://travis-ci.org/oahehc/openinghour-shorten.svg?branch=develop)](https://travis-ci.org/oahehc/openinghour-shorten) [![Coverage Status](https://coveralls.io/repos/github/oahehc/openinghour-shorten/badge.svg?branch=master)](https://coveralls.io/github/oahehc/openinghour-shorten?branch=master)
+# openinghour-shorten [![Build Status](https://travis-ci.org/oahehc/openinghour-shorten.svg?branch=develop)](https://travis-ci.org/oahehc/openinghour-shorten) [![Coverage Status](https://coveralls.io/repos/github/oahehc/openinghour-shorten/badge.svg?branch=develop)](https://coveralls.io/github/oahehc/openinghour-shorten?branch=develop)
 ### shorten google map opening hour data
 
 
