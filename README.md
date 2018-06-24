@@ -1,4 +1,4 @@
-# openinghour-shorten
+# openinghour-shorten [![Build Status](https://travis-ci.org/oahehc/openinghour-shorten.svg?branch=develop)](https://travis-ci.org/oahehc/openinghour-shorten)
 ### shorten google map opening hour data
 
 
@@ -33,3 +33,6 @@ openinghourShorten(openingHour);
 
 ## License
 MIT © [Oahehc](https://github.com/oahehc)
+
+
+## Contributors

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1529811456006" clover="3.2.0">
+  <project timestamp="1529811456007" name="All files">
+    <metrics statements="42" coveredstatements="42" conditionals="17" coveredconditionals="17" methods="17" coveredmethods="17" elements="76" coveredelements="76" complexity="0" loc="42" ncloc="42" packages="1" files="2" classes="2">
+      <file name="helper.js" path="/Users/allenchang/Store/Personal/openinghour-shorten/helper.js">
+        <metrics statements="11" coveredstatements="11" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="7" type="stmt"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="7" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="17" count="64" type="cond" truecount="5" falsecount="0"/>
+        <line num="18" count="61" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+      </file>
+      <file name="index.js" path="/Users/allenchang/Store/Personal/openinghour-shorten/index.js">
+        <metrics statements="31" coveredstatements="31" conditionals="10" coveredconditionals="10" methods="14" coveredmethods="14"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="62" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="31" type="stmt"/>
+        <line num="12" count="101" type="stmt"/>
+        <line num="13" count="198" type="stmt"/>
+        <line num="14" count="80" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="101" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="38" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="37" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="15" type="stmt"/>
+        <line num="25" count="22" type="stmt"/>
+        <line num="28" count="39" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="41" count="11" type="stmt"/>
+        <line num="42" count="11" type="stmt"/>
+        <line num="45" count="101" type="stmt"/>
+        <line num="46" count="101" type="stmt"/>
+        <line num="50" count="101" type="stmt"/>
+        <line num="54" count="31" type="stmt"/>
+        <line num="55" count="31" type="stmt"/>
+        <line num="56" count="31" type="stmt"/>
+        <line num="61" count="31" type="stmt"/>
+        <line num="62" count="26" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+      </file>
+    </metrics>
+  </project>
+</coverage>

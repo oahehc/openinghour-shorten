@@ -10,9 +10,6 @@
     "google_map",
     "opening_hours"
   ],
-  "devDependencies": {
-    "jest": "^23.1.0"
-  },
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "jest --watchAll"
@@ -33,6 +30,9 @@
       "node_modules"
     ],
     "testRegex": "./.*\\.test\\.js$"
+  },
+  "devDependencies": {
+    "jest": "^23.1.0"
   },
   "dependencies": {
     "immutable": "^3.8.2"

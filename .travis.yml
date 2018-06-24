@@ -8,3 +8,10 @@ install:
 
 script:
   - npm test
+
+notifications:
+  email:
+    recipients:
+      - oahehc@gmail.com
+    on_success: always
+    on_failure: always
