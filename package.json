@@ -11,8 +11,9 @@
     "opening_hours"
   ],
   "scripts": {
-    "test": "jest --coverage",
-    "test:watch": "jest --watchAll"
+    "test": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test:watch": "jest --watchAll",
+    "cover": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "jest": {
     "collectCoverageFrom": [
