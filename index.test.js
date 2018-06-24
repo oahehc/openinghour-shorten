@@ -66,19 +66,32 @@ describe('NORMAL CASE', () => {
     const expectResult = 'Sun 10:00~21:00; Mon-Thu,Sat 11:00~21:00; Fri 11:00~22:00';
     expect(openinghourShorten(openingHours)).toBe(expectResult);
   });
-  // test('multiple continue range in same group', () => {
-  //   const openingHours = [
-  //     { close: { day: 0, time: '2100' }, open: { day: 0, time: '1100' } },
-  //     { close: { day: 1, time: '2100' }, open: { day: 1, time: '1100' } },
-  //     { close: { day: 2, time: '2100' }, open: { day: 2, time: '1100' } },
-  //     { close: { day: 3, time: '2300' }, open: { day: 3, time: '1100' } },
-  //     { close: { day: 4, time: '2100' }, open: { day: 4, time: '1100' } },
-  //     { close: { day: 5, time: '2100' }, open: { day: 5, time: '1100' } },
-  //     { close: { day: 6, time: '2100' }, open: { day: 6, time: '1100' } },
-  //   ];
-  //   const expectResult = '';
-  //   expect(openinghourShorten(openingHours)).toBe(expectResult);
-  // });
+  test('multiple continue range in same group', () => {
+    const openingHours = [
+      { close: { day: 0, time: '2100' }, open: { day: 0, time: '1100' } },
+      { close: { day: 1, time: '2100' }, open: { day: 1, time: '1100' } },
+      { close: { day: 2, time: '2100' }, open: { day: 2, time: '1100' } },
+      { close: { day: 3, time: '2300' }, open: { day: 3, time: '1100' } },
+      { close: { day: 4, time: '2100' }, open: { day: 4, time: '1100' } },
+      { close: { day: 5, time: '2100' }, open: { day: 5, time: '1100' } },
+      { close: { day: 6, time: '2100' }, open: { day: 6, time: '1100' } },
+    ];
+    const expectResult = 'Sun-Tue,Thu-Sat 11:00~21:00; Wed 11:00~23:00';
+    expect(openinghourShorten(openingHours)).toBe(expectResult);
+  });
+  test('overnight', () => {
+    const openingHours = [
+      { close: { day: 1, time: '0000' }, open: { day: 0, time: '1800' } },
+      { close: { day: 2, time: '0000' }, open: { day: 1, time: '1800' } },
+      { close: { day: 3, time: '0000' }, open: { day: 2, time: '1800' } },
+      { close: { day: 4, time: '0000' }, open: { day: 3, time: '1800' } },
+      { close: { day: 5, time: '0000' }, open: { day: 4, time: '1800' } },
+      { close: { day: 6, time: '0100' }, open: { day: 5, time: '1800' } },
+      { close: { day: 0, time: '0100' }, open: { day: 6, time: '1800' } },
+    ];
+    const expectResult = 'Sun-Thu 18:00~00:00; Fri,Sat 18:00~01:00';
+    expect(openinghourShorten(openingHours)).toBe(expectResult);
+  });
   // test('multiple time period', () => {
     // const openingHours = [
     //   { close: { day: 0, time: '1030' }, open: { day: 0, time: '0630' } },
@@ -112,19 +125,6 @@ describe('NORMAL CASE', () => {
   //   const expectResult = '';
   //   expect(openinghourShorten(openingHours)).toBe(expectResult);
   // });
-  // test('overnight', () => {
-    // const openingHours = [
-    //   { close: { day: 1, time: '0000' }, open: { day: 0, time: '1800' } },
-    //   { close: { day: 2, time: '0000' }, open: { day: 1, time: '1800' } },
-    //   { close: { day: 3, time: '0000' }, open: { day: 2, time: '1800' } },
-    //   { close: { day: 4, time: '0000' }, open: { day: 3, time: '1800' } },
-    //   { close: { day: 5, time: '0000' }, open: { day: 4, time: '1800' } },
-    //   { close: { day: 6, time: '0100' }, open: { day: 5, time: '1800' } },
-    //   { close: { day: 0, time: '0100' }, open: { day: 6, time: '1800' } },
-    // ];
-  //   const expectResult = '';
-  //   expect(openinghourShorten(openingHours)).toBe(expectResult);
-  // });
   // test('overnight + multiple time period', () => {
     // const openingHours = [
     //   { close: { day: 0, time: '1400' }, open: { day: 0, time: '1130' } },
@@ -144,19 +144,19 @@ describe('NORMAL CASE', () => {
   //   expect(openinghourShorten(openingHours)).toBe(expectResult);
   // });
   // test('with holiday', () => {
-    // const openingHours = [
-    // { close: { day: 1, time: '1400' }, open: { day: 1, time: '1130' } },
-    // { close: { day: 1, time: '2100' }, open: { day: 1, time: '1730' } },
-    // { close: { day: 2, time: '1400' }, open: { day: 2, time: '1130' } },
-    // { close: { day: 2, time: '2100' }, open: { day: 2, time: '1730' } },
-    // { close: { day: 3, time: '1400' }, open: { day: 3, time: '1130' } },
-    // { close: { day: 3, time: '2100' }, open: { day: 3, time: '1730' } },
-    // { close: { day: 4, time: '1400' }, open: { day: 4, time: '1130' } },
-    // { close: { day: 4, time: '2100' }, open: { day: 4, time: '1730' } },
-    // { close: { day: 5, time: '1400' }, open: { day: 5, time: '1130' } },
-    // { close: { day: 5, time: '2100' }, open: { day: 5, time: '1730' } },
-    // { close: { day: 6, time: '1400' }, open: { day: 6, time: '1130' } },
-    // { close: { day: 6, time: '2100' }, open: { day: 6, time: '1730' } } ];
+  //   const openingHours = [
+  //   { close: { day: 1, time: '1400' }, open: { day: 1, time: '1130' } },
+  //   { close: { day: 1, time: '2100' }, open: { day: 1, time: '1730' } },
+  //   { close: { day: 2, time: '1400' }, open: { day: 2, time: '1130' } },
+  //   { close: { day: 2, time: '2100' }, open: { day: 2, time: '1730' } },
+  //   { close: { day: 3, time: '1400' }, open: { day: 3, time: '1130' } },
+  //   { close: { day: 3, time: '2100' }, open: { day: 3, time: '1730' } },
+  //   { close: { day: 4, time: '1400' }, open: { day: 4, time: '1130' } },
+  //   { close: { day: 4, time: '2100' }, open: { day: 4, time: '1730' } },
+  //   { close: { day: 5, time: '1400' }, open: { day: 5, time: '1130' } },
+  //   { close: { day: 5, time: '2100' }, open: { day: 5, time: '1730' } },
+  //   { close: { day: 6, time: '1400' }, open: { day: 6, time: '1130' } },
+  //   { close: { day: 6, time: '2100' }, open: { day: 6, time: '1730' } } ];
   //   const expectResult = '';
   //   expect(openinghourShorten(openingHours)).toBe(expectResult);
   // });
