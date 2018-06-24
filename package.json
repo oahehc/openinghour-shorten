@@ -32,6 +32,7 @@
     "testRegex": "./.*\\.test\\.js$"
   },
   "devDependencies": {
+    "coveralls": "^3.0.1",
     "jest": "^23.1.0"
   },
   "dependencies": {
