@@ -1,6 +1,5 @@
 const Immutable = require('immutable');
 const {
-  isContinue,
   dateToName,
 } = require('./helper');
 
@@ -27,10 +26,6 @@ const dateFormat = (dateList) => {
     }, Immutable.List())
     // mapping to name
     .map((list) => list.map(dateToName).join('-')).join(',');
-  // if (isContinue(dateList)) {
-  //   return `${dateList.map(dateToName).first()}-${dateList.map(dateToName).last()}`;
-  // }
-  // return dateList.map(dateToName).join(',');
 };
 
 /**
@@ -51,18 +46,15 @@ module.exports = function(openingHours) {
         return group.set(index, group.get(index, Immutable.List()).push(hour));
       }, Immutable.Map())
       // day to name
-      .map((group) => (
-        group.map((hour) => (hour.getIn(['open', 'day'], hour.getIn(['close', 'day']))))
-      ))
+      .map((group) => group.map((hour) => (hour.getIn(['open', 'day'], hour.getIn(['close', 'day'])))))
       // clock format adjust
-      .map((group, key) => {
-        const time = key.split('_').map(timeFormat).join('~');
-        const date = dateFormat(group);
-        return Immutable.fromJS({
-          time,
-          date,
-        });
-      })
+      .map((group, key) => (
+        Immutable.fromJS({
+          time: key.split('_').map(timeFormat).join('~'),
+          date: dateFormat(group),
+        })
+      ))
+      // group equal date
       .reduce((list, group) => list.set(group.get('date'), list.get(group.get('date'), Immutable.List()).push(group.get('time'))), Immutable.Map())
       .map((group, date) => `${date} ${group.join(' ')}`)
       .join('; ');
