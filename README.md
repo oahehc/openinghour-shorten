@@ -14,7 +14,7 @@ $ yarn add openinghour-shorten
 
 ```js
 import openinghourShorten from 'openinghour-shorten';
-// const openinghourShorten = require('openinghour-shorten');
+// OR const openinghourShorten = require('openinghour-shorten');
 
 // google map api response: result.opening_hours.periods
 const openingHour = [
