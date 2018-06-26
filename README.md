@@ -31,6 +31,10 @@ openinghourShorten(openingHour);
 //=> Sun 10:00~21:00; Mon-Thu 11:00~21:00; Fri 11:00~22:00; Sat 10:00~22:00
 ```
 
+## What's Next
+- start by Monday
+- 12hr format
+
 
 ## License
 MIT © [Oahehc](https://github.com/oahehc)

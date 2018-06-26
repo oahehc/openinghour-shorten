@@ -123,7 +123,7 @@ describe('NORMAL CASE', () => {
       { close: { day: 6, time: '1700' }, open: { day: 6, time: '1530' } },
       { close: { day: 6, time: '2130' }, open: { day: 6, time: '1800' } },
     ];
-    // const expectResult = 'Sun,Sat 06:30~10:30 12:00~14:30; Mon-Fri 06:30~10:00 11:30~14:00; Sun-Sat 15:30~17:00 18:00~21:30';
+    // const expectResult = 'Sun,Sat 06:30~10:30 12:00~14:30; Mon-Fri 06:30~10:00 11:30~14:00; Sun-Sat 15:30~17:00 18:00~21:30'; TODO:
     const expectResult = 'Sun,Sat 06:30~10:30 12:00~14:30; Sun-Sat 15:30~17:00 18:00~21:30; Mon-Fri 06:30~10:00 11:30~14:00';
     expect(openinghourShorten(openingHours)).toBe(expectResult);
   });
@@ -167,16 +167,16 @@ describe('NORMAL CASE', () => {
 
 describe('ERROR HANDLE', () => {
   test('undefined', () => {
-    const expectResult = null;
+    const expectResult = '';
     expect(openinghourShorten()).toBe(expectResult);
   });
   test('null', () => {
-    const expectResult = null;
+    const expectResult = '';
     expect(openinghourShorten(null)).toBe(expectResult);
   });
   test('error format', () => {
     const openingHours = 'openingHours';
-    const expectResult = null;
+    const expectResult = '';
     expect(openinghourShorten(openingHours)).toBe(expectResult);
   });
 });

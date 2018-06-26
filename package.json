@@ -46,6 +46,7 @@
     },
     "rules": {
       "max-len": 0,
+      "linebreak-style": 0,
       "comma-spacing": 0,
       "no-trailing-spaces": [
         2,
