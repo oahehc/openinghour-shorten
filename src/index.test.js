@@ -170,6 +170,13 @@ describe('NORMAL', () => {
     const expectResult = '24/7';
     expect(openinghourShorten(openingHours)).toBe(expectResult);
   });
+  test('Single Day', () => {
+    const openingHours = [
+      { close: { day: 0, time: '1400' }, open: { day: 0, time: '1130' } },
+    ];
+    const expectResult = 'Sun 11:30~14:00';
+    expect(openinghourShorten(openingHours)).toBe(expectResult);
+  });
 });
 
 describe('START BY MONDAY', () => {
