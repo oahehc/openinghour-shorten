@@ -1,4 +1,5 @@
-# openinghour-shorten [![Build Status](https://travis-ci.org/oahehc/openinghour-shorten.svg?branch=develop)](https://travis-ci.org/oahehc/openinghour-shorten) [![Coverage Status](https://coveralls.io/repos/github/oahehc/openinghour-shorten/badge.svg?branch=develop)](https://coveralls.io/github/oahehc/openinghour-shorten?branch=develop)
+# openinghour-shorten
+[![Build Status](https://travis-ci.org/oahehc/openinghour-shorten.svg?branch=master)](https://travis-ci.org/oahehc/openinghour-shorten) [![Coverage Status](https://coveralls.io/repos/github/oahehc/openinghour-shorten/badge.svg?branch=master)](https://coveralls.io/github/oahehc/openinghour-shorten?branch=master)
 ### shorten google map opening hour data
 
 
@@ -13,7 +14,7 @@ $ yarn add openinghour-shorten
 
 ```js
 import openinghourShorten from 'openinghour-shorten';
-// const openinghourShorten = require('openinghour-shorten');
+//OR const openinghourShorten = require('openinghour-shorten');
 
 // google map api response: result.opening_hours.periods
 const openingHour = [
@@ -28,7 +29,15 @@ const openingHour = [
 
 openinghourShorten(openingHour);
 //=> Sun 10:00~21:00; Mon-Thu 11:00~21:00; Fri 11:00~22:00; Sat 10:00~22:00
+
+openinghourShorten(openingHour, { startByMonday: true });
+//=> Mon-Thu 11:00~21:00; Fri 11:00~22:00; Sat 10:00~22:00; Sun 10:00~21:00
+
+openinghourShorten(openingHour, { format12Hr: true });
+//=> Mon-Thu 11:00AM~09:00PM; Fri 11:00AM~10:00PM; Sat 10:00AM~10:00PM; Sun 10:00AM~09:00PM
 ```
+
+## What's Next
 
 
 ## License
