@@ -16,7 +16,7 @@
     "cover": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "eslint": "./node_modules/.bin/eslint  -- . ",
     "build": "babel src -d disc",
-    "deploy": "npm run test || npm run build"
+    "deploy": "npm run test && npm run build"
   },
   "jest": {
     "collectCoverageFrom": [
