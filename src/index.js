@@ -40,6 +40,12 @@ module.exports = (openingHours, options = {}) => {
     console.error('openingHours not follow google map format');
     return '';
   }
+  if (openingHours.length === 1) {
+    const hour = openingHours[0];
+    if (hour.open && hour.open.day === 0 && hour.open.time === '0000' && !hour.close) {
+      return '24/7';
+    }
+  }
   try {
     let immutableOpeningHours = Immutable.fromJS(openingHours);
     if (options.startByMonday) {
