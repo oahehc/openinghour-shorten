@@ -29,11 +29,15 @@ const openingHour = [
 
 openinghourShorten(openingHour);
 //=> Sun 10:00~21:00; Mon-Thu 11:00~21:00; Fri 11:00~22:00; Sat 10:00~22:00
+
+openinghourShorten(openingHour, { startByMonday: true });
+//=> Mon-Thu 11:00~21:00; Fri 11:00~22:00; Sat 10:00~22:00; Sun 10:00~21:00
+
+openinghourShorten(openingHour, { format12Hr: true });
+//=> Mon-Thu 11:00AM~09:00PM; Fri 11:00AM~10:00PM; Sat 10:00AM~10:00PM; Sun 10:00AM~09:00PM
 ```
 
 ## What's Next
-- start by Monday
-- 12hr format
 
 
 ## License

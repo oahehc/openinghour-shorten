@@ -1,10 +1,11 @@
 const Immutable = require('immutable');
 const {
   dateToName,
+  timeFormat,
+  time12hrFormat,
 } = require('./helper');
 
 
-const timeFormat = t => `${t.slice(0, 2)}:${t.slice(2, 4)}`;
 const dateFormat = dateList => (
   dateList
     // group continue day: [[0,1,2], [4, 5]]
@@ -34,13 +35,22 @@ const dateFormat = dateList => (
  * 
  * @return {string}
  */
-module.exports = (openingHours) => {
+module.exports = (openingHours, options = {}) => {
   if (!openingHours) {
     console.error('openingHours not follow google map format');
     return '';
   }
   try {
-    return Immutable.fromJS(openingHours)
+    let immutableOpeningHours = Immutable.fromJS(openingHours);
+    if (options.startByMonday) {
+      immutableOpeningHours = immutableOpeningHours.map((hour) => {
+        if (hour.getIn(['open', 'day']) === 0) {
+          return hour.setIn(['open', 'day'], 7);
+        }
+        return hour;
+      }).sortBy(hour => hour.getIn(['open', 'day']));
+    }
+    return immutableOpeningHours
       // group by open & close time
       .reduce((group, hour) => {
         const index = `${hour.getIn(['open', 'time'], '')}_${hour.getIn(['close', 'time'], '')}`;
@@ -51,12 +61,10 @@ module.exports = (openingHours) => {
       // clock format adjust
       .map((group, key) => (
         Immutable.fromJS({
-          time: key.split('_').map(timeFormat).join('~'),
+          time: (options.format12Hr) ? key.split('_').map(time12hrFormat).join('~') : key.split('_').map(timeFormat).join('~'),
           date: dateFormat(group),
-          length: group.size,
         })
       ))
-      // .sortBy(group => group.get('length'))
       // group equal date
       .reduce((list, group) => list.set(group.get('date'), list.get(group.get('date'), Immutable.List()).push(group.get('time'))), Immutable.Map())
       .map((group, date) => `${date} ${group.join(' ')}`)
